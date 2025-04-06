@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 // import AdminRoutes from "./routes/AdminRoutes";
 import SuperAdminRoutes from "./routes/SuperAdminRoutes";
 // import UserRoutes from "./routes/UserRoutes";
-// import LandingPageRoutes from "./routes/LandingPageRoutes";
+import LandingPageRoutes from "./routes/LandingPageRoutes";
 // Dummy auth function
 const getUserRole = () => {
   return localStorage.getItem("role") || "guest";
