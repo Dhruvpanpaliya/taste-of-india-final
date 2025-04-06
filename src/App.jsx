@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
-import AdminRoutes from "./routes/AdminRoutes";
+// import AdminRoutes from "./routes/AdminRoutes";
 import SuperAdminRoutes from "./routes/SuperAdminRoutes";
-import UserRoutes from "./routes/UserRoutes";
-import LandingPageRoutes from "./routes/LandingPageRoutes";
+// import UserRoutes from "./routes/UserRoutes";
+// import LandingPageRoutes from "./routes/LandingPageRoutes";
 // Dummy auth function
 const getUserRole = () => {
   return localStorage.getItem("role") || "guest";
@@ -27,6 +27,9 @@ const App = () => {
 
       </Routes>
     </Router>
+    // <>
+    //   <SuperAdminRoutes />
+    // </>
   );
 };
 
