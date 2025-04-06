@@ -3,7 +3,8 @@ import { FaDownload, FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FaChevronDown } from "react-icons/fa";
-
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import { ImCross } from "react-icons/im";
 const AdminDetails = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -98,6 +99,23 @@ const AdminDetails = () => {
   const totalManagers = managers.length;
   const totalCloudKitchens = new Set(managers.map((m) => m.cloudKitchenId)).size;
 
+  const toggleStatus = (managerId) => {
+    const updatedManagers = managers.map((manager) => {
+      if (manager.managerId === managerId) {
+        const newStatus = manager.status === "ACTIVE" ? "INACTIVE" : "ACTIVE";
+        toast.success(`Manager status changed to ${newStatus}`);
+        return {
+          ...manager,
+          status: newStatus,
+        };
+      }
+      return manager;
+    });
+  
+    setManagers(updatedManagers);
+  };
+  
+  
 
 
   return (
@@ -201,7 +219,7 @@ const AdminDetails = () => {
               <th className="border p-3">City</th>
               <th className="border p-3">Country</th>
               <th className="border p-3">Status</th>
-              <th className="border p-3">Edit</th>
+              {/* <th className="border p-3">Edit</th> */}
             </tr>
           </thead>
           <tbody>
@@ -212,7 +230,8 @@ const AdminDetails = () => {
       </td>
     </tr>
   ) : (
-    filteredManagers.map((manager) => {
+    [...filteredManagers]
+      .sort((a, b) => a.cloudKitchenId - b.cloudKitchenId).map((manager) => {
       const kitchen = kitchens.find(k => String(k.kitchenId) === String(manager.cloudKitchenId));
 
 
@@ -227,14 +246,20 @@ const AdminDetails = () => {
           <td className="border p-3">{kitchen ? kitchen.kitchenName : "N/A"}</td>
           <td className="border p-3">{kitchen ? kitchen.city : "N/A"}</td>
           <td className="border p-3">{kitchen ? kitchen.state : "N/A"}</td>
-          <td className={`border p-3 font-semibold ${manager.status === "ACTIVE" ? "text-green-600" : "text-red-600"}`}>
-            {manager.status === "ACTIVE" ? "Active" : "Inactive"}
-          </td>
-          <td className="border p-3">
+          <td
+  className={`border p-3 font-semibold cursor-pointer ${
+    manager.status === "ACTIVE" ? "text-green-600" : "text-red-600"
+  }`}
+  onClick={() => toggleStatus(manager.managerId)}
+>
+  {manager.status === "ACTIVE" ? "Active" : "Inactive"}
+</td>
+
+          {/* <td className="border p-3">
             <button className="text-blue-600 hover:text-blue-800" onClick={() => handleEditClick(manager)}>
               <FaEdit />
             </button>
-          </td> 
+          </td>  */}
         </tr>
       );
     })

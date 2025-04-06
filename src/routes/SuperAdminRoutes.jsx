@@ -7,7 +7,7 @@ import ManagerDetails from "../SuperAdmin/pages/ManagerDetails";
 import CloudKitchens from "../SuperAdmin/pages/CloudKitchens";
 import KitchenDetails from "../SuperAdmin/pages/KitchenDetails";
 import Menus from '../SuperAdmin/pages/Menus';
-import StateCuisines from "../SuperAdmin/pages/StateCuisines"; 
+import StateCuisines from "../SuperAdmin/pages/StateCuisines";
 import Notifications from '../SuperAdmin/pages/Notifications';
 import SignIn from '../SuperAdmin/pages/SignIn';
 import Messages from '../SuperAdmin/pages/Messages';
@@ -17,6 +17,9 @@ import UpdateManagerDetails from '../SuperAdmin/components/UpdateManagerDetails'
 import Cregistration from "../SuperAdmin/pages/Cregistration";
 import ManagerRegistration from '../SuperAdmin/pages/ManagerRegistration';
 import '../SuperAdmin/styles/global.css';
+import BestSellingCuisines from '../SuperAdmin/pages/BestSellingCuisines';
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function Layout() {
     const location = useLocation();
@@ -40,14 +43,16 @@ function Layout() {
                         <Route path="/manager-details/:name" element={<ManagerDetails />} />
                         <Route path="/cloud-kitchens" element={<CloudKitchens />} />
                         <Route path="/cloud-kitchens/:id" element={<KitchenDetails />} />
-                        <Route path="/menus" element={<Menus />} />
-                        <Route path="/state/:stateName" element={<StateCuisines />} />
+                        {/* <Route path="/menus" element={<Menus />} />
+                        <Route path="/state/:stateName" element={<StateCuisines />} /> */}
                         <Route path="/notifications" element={<Notifications />} />
                         <Route path="/messages" element={<Messages />} />
                         <Route path="/sign-in" element={<SignIn />} />
                         <Route path="/profile" element={<Profile />} />
                         <Route path="/update-manager/:id" element={<UpdateManagerDetails />} />
+                        <Route path="/menus" element={<BestSellingCuisines />} />
                     </Routes>
+                    <ToastContainer position="top-right" autoClose={5000} />
                 </main>
             </div>
         </div>
