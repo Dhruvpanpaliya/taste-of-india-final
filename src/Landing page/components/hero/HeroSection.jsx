@@ -17,13 +17,12 @@ import Review from "../reviewpage/review";
 import { Link } from 'react-router-dom';
 import SubscriptionPage from "../subscription/Subscription.jsx"
 import Finallogo from "../images/Final logo.jpg";
+import loggo from "../images/logoo.png";
 import Threeplateimage from "../images/Threeplateimage.png"
 import Sliderimage3 from "../images/Sliderimage3.jpg"
 import Nimbuimage from "../images/nimbuimage.jpg"
 import meal from "../images/meal-5589923_1280.jpg"
 import salad from "../images/salad-8274421_1280.jpg"
-// import Menu fromm "../"
-import Menu from "../Menus/Menus.jsx"
 
 
 
@@ -45,15 +44,15 @@ const HeroSection = () => {
       {/* Navbar */}
       <nav className="flex justify-between items-center p-4 shadow-md bg-white">
               <div className="flex items-center space-x-2">
-                <img src={Finallogo} alt="Logo" className="w-25 h-20" />
+                <img src={loggo} alt="Logo" className="w-25 h-20" />
               </div>
               <div className="flex items-center space-x-6">
                 <a href="#" className="text-gray-600 hover:text-black"><Link to={"/hero"}>Home</Link></a>
                 <a href="#" className="text-gray-600 hover:text-black">Services</a>
                 <a href="#" className="text-gray-600 hover:text-black"><Link to={"/sub"}>Subscriptions</Link></a>
-                <a href="#" className="text-gray-600 hover:text-black">Menu</a>
-                <a href="#" className="text-gray-600 hover:text-black">
-                  Offers <sup className="text-red-500 font-bold">NEW</sup>
+                <a href="#" className="text-gray-600 hover:text-black"><Link to={"/menuexplore"}>Menu</Link></a>
+                <a href="#" className="text-gray-600 hover:text-black"><Link to={"/menuexplore"}>
+                  Offers <sup className="text-red-500 font-bold">NEW</sup></Link>
                 </a>
                 <button className="bg-orange-500 text-white px-4 py-2 rounded-lg"><Link to={"/login"}>Sign In</Link></button>
               </div>
@@ -68,7 +67,7 @@ const HeroSection = () => {
                   <span className="font-semibold">Amravati</span>
                 </div>
                 <h1 className="text-4xl font-bold">
-                  Experience Authenticate{" "}
+                  Experience Authentic{" "}
                   <span className="text-orange-600">Indian Cuisine</span>
                   <br /> Delivered to Your Doorstep
                 </h1>
@@ -123,24 +122,24 @@ const HeroSection = () => {
         <div className="relative bg-green-100 rounded-lg shadow-lg overflow-hidden">
           <img src={Tiffin} alt="Tiffin Service" className="w-full h-full object-cover rounded-t-lg" />
           <div className="absolute bottom-0 bg-white/80 w-full p-4 flex justify-between items-center">
-            <span className="font-semibold">Tiffin Service</span>
-            <button className="text-orange-500">➜</button>
+            <span className="font-semibold left-[160px] ">Delivery Service</span>
+            {/* <button className="text-orange-500">➜</button> */}
           </div>
         </div>
 
         <div className="relative bg-green-100 rounded-lg shadow-lg overflow-hidden">
           <img src={secondImage} alt="National Culinary" className="w-full h-full object-cover rounded-t-lg" />
           <div className="absolute bottom-0 bg-white/80 w-full p-4 flex justify-between items-center">
-            <span className="font-semibold">National Culinary</span>
-            <button className="text-orange-500">➜</button>
+            <span className="font-semibold">Subscription </span>
+            {/* <button className="text-orange-500">➜</button> */}
           </div>
         </div>
 
         <div className="relative bg-green-100 rounded-lg shadow-lg overflow-hidden">
           <img src={thirdImage} alt="Diet Tracking" className="w-full h-full object-cover rounded-t-lg" />
           <div className="absolute bottom-0 bg-white/80 w-full p-4 flex justify-between items-center">
-            <span className="font-semibold">Personalized Meals & Diet Tracking</span>
-            <button className="text-orange-500">➜</button>
+            <span className="font-semibold">Personalized Meals</span>
+            {/* <button className="text-orange-500">➜</button> */}
           </div>
         </div>
       </div>
@@ -166,7 +165,6 @@ const HeroSection = () => {
       </div>
       <div>
       <SubscriptionPage/>
-      <Menu/>
       </div>
       <Review/>
       <Footer/>
